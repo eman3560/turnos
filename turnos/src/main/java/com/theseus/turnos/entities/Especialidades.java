@@ -5,14 +5,13 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="tiposdoc")
-public class TiposDoc implements Serializable {
+@Table(name="especialidades")
+public class Especialidades implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String descrip;
-    private Boolean defecto;
 
     public Integer getId() {
         return id;
@@ -30,12 +29,4 @@ public class TiposDoc implements Serializable {
         this.descrip = descrip;
     }
 
-
-    public Boolean getDefecto() {
-        return defecto;
-    }
-
-    public void setDefecto(Boolean defecto) {
-        this.defecto = defecto;
-    }
 }
