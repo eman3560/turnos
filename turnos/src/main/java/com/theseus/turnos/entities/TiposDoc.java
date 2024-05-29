@@ -1,6 +1,8 @@
 package com.theseus.turnos.entities;
 
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
+
 
 import java.io.Serializable;
 

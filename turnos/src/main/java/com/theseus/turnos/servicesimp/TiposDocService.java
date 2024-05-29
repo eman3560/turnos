@@ -32,6 +32,16 @@ public class TiposDocService implements ITiposDocService {
     @Transactional
     public void save(TiposDoc entity) {
         entityDao.save(entity);
+
+        if (entity.getDefecto()) {
+        List<TiposDoc> entities=entityDao.findAll();
+        for (TiposDoc c: entities) {
+            c.setDefecto(false);
+        }
+        entityDao.saveAll(entities);
+        entity.setDefecto(true);
+        entityDao.save(entity);
+        }
     }
 
     @Transactional
