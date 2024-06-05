@@ -21,9 +21,6 @@ public class HorariosProfesionalesController {
     @GetMapping(path = "/HorariosProfesionales/{id}")
     public HorariosProfesionales get(@PathVariable Integer id) {return entityService.get(id);}
 
-    @GetMapping(path = "/HorariosProfesionales/search/{expresion}")
-    public List<HorariosProfesionales> getListHorariosProfesionales(@PathVariable String expresion) {return entityService.findByDescrip(expresion);}
-
     @PostMapping(value = "/HorariosProfesionales", consumes = "application/json", produces = "application/json")
     public HorariosProfesionales save(@RequestBody HorariosProfesionales entity) {
         entityService.save(entity);

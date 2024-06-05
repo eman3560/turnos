@@ -9,9 +9,13 @@ import java.io.Serializable;
 public class HorariosProfesionales implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String descrip;
+    private Long id;
+
+    private Boolean estado;
+
+    @JoinColumn (name = "fk_profesional", referencedColumnName = "id", nullable = false)
+    @ManyToOne
+    private Profesionales prof;
 
     @JoinColumn (name = "fk_horario", referencedColumnName = "id", nullable = false)
     @ManyToOne
@@ -21,20 +25,12 @@ public class HorariosProfesionales implements Serializable {
     @ManyToOne
     private Dias dia;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getDescrip() {
-        return descrip;
-    }
-
-    public void setDescrip(String descrip) {
-        this.descrip = descrip;
     }
 
     public Horarios getHora() {
@@ -51,5 +47,21 @@ public class HorariosProfesionales implements Serializable {
 
     public void setDia(Dias dia) {
         this.dia = dia;
+    }
+
+    public Profesionales getProf() {
+        return prof;
+    }
+
+    public void setProf(Profesionales prof) {
+        this.prof = prof;
+    }
+
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
     }
 }
