@@ -2,6 +2,8 @@ package com.ema.turnos.servicesimp;
 
 
 
+import com.ema.turnos.dao.IDiasHorariosTurnosDao;
+import com.ema.turnos.entities.DiasHorariosTurnos;
 import com.ema.turnos.services.IDiasHorariosTurnosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -11,21 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class DiasHorariosTurnos implements IDiasHorariosTurnosService {
+public class DiasHorariosTurnosService implements IDiasHorariosTurnosService {
     @Autowired
-    private IDiasHorariosTurnosService entityDao;
+    private IDiasHorariosTurnosDao entityDao;
 
-    public List<IDiasHorariosTurnosService> getAll()
+    public List<DiasHorariosTurnos> getAll()
     {
         return entityDao.findAll(Sort.by(Sort.Direction.ASC,"id"));
     }
 
-    public IDiasHorariosTurnosService get(Integer id) {
+    public DiasHorariosTurnos get(Long id) {
         return entityDao.findById(id).orElse(null);
     }
-
-
-
     @Transactional
     public void save(DiasHorariosTurnos entity)
     {

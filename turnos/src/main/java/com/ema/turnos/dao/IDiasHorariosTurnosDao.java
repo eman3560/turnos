@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IDiasHorariosTurnosDao extends JpaRepository<DiasHorariosTurnos, Integer> {
+public interface IDiasHorariosTurnosDao extends JpaRepository<DiasHorariosTurnos, Long> {
 
 }
